@@ -1,0 +1,68 @@
+﻿<Application
+    x:Class="GlassSideBar.Demo.App"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    RequestedThemeVariant="Dark">
+
+    <Application.Styles>
+        <FluentTheme />
+
+        <Style Selector="Button.subtleButton:pointerover">
+            <Setter Property="Background" Value="{DynamicResource ButtonHoverBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ButtonHoverBorderBrush}" />
+        </Style>
+
+        <Style Selector="ToggleSwitch.WorkspaceToggle /template/ Border#OuterBorder">
+            <Setter Property="Background" Value="{DynamicResource ToggleOffBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ToggleOffBorderBrush}" />
+        </Style>
+
+        <Style Selector="ToggleSwitch.WorkspaceToggle /template/ Border#SwitchKnobBounds">
+            <Setter Property="Background" Value="{DynamicResource ToggleOnBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ToggleOnBorderBrush}" />
+        </Style>
+
+        <Style Selector="ToggleSwitch.WorkspaceToggle /template/ Ellipse#SwitchKnobOff">
+            <Setter Property="Fill" Value="{DynamicResource ToggleKnobBrush}" />
+        </Style>
+
+        <Style Selector="ToggleSwitch.WorkspaceToggle /template/ Ellipse#SwitchKnobOn">
+            <Setter Property="Fill" Value="{DynamicResource ToggleKnobBrush}" />
+        </Style>
+
+        <Style Selector="ToggleSwitch.WorkspaceToggle:pointerover /template/ Border#OuterBorder">
+            <Setter Property="Background" Value="{DynamicResource ToggleOffHoverBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ToggleOffHoverBorderBrush}" />
+        </Style>
+
+        <Style Selector="ToggleSwitch.WorkspaceToggle:pointerover /template/ Border#SwitchKnobBounds">
+            <Setter Property="Background" Value="{DynamicResource ToggleOnHoverBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ToggleOnHoverBorderBrush}" />
+        </Style>
+
+        <Style Selector="ComboBox">
+            <Setter Property="CornerRadius" Value="8" />
+            <Setter Property="Padding" Value="14,9" />
+            <Setter Property="BorderThickness" Value="1" />
+        </Style>
+
+        <Style Selector="ComboBox:pointerover /template/ Border#Background">
+            <Setter Property="Background" Value="{DynamicResource ButtonHoverBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ButtonHoverBorderBrush}" />
+        </Style>
+
+        <Style Selector="ComboBox:focus /template/ Border#Background">
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="{DynamicResource CardBorderBrush}" />
+        </Style>
+    </Application.Styles>
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceInclude Source="avares://GlassSideBar.Demo/Controls/GlassSideBarResources.axaml" />
+                <ResourceInclude Source="avares://GlassSideBar.Demo/DemoResources.axaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

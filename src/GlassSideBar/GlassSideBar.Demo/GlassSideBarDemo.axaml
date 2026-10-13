@@ -1,0 +1,11 @@
+<UserControl
+    x:Class="GlassSideBar.Demo.GlassSideBarDemo"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:GlassSideBar.Demo.Controls"
+    xmlns:local="using:GlassSideBar.Demo"
+    x:DataType="local:GlassSideBarDemo">
+
+    <controls:GlassSideBar MenuContent="{Binding Items}" />
+
+</UserControl>

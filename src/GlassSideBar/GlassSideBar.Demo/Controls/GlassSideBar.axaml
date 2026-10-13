@@ -1,0 +1,282 @@
+<UserControl
+    x:Class="GlassSideBar.Demo.Controls.GlassSideBar"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:acrylic="using:Fluid.Avalonia.Acrylic"
+    xmlns:controls="using:GlassSideBar.Demo.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+
+    <UserControl.Styles>
+        <!--  ToggleButton Base Sizing & Shape Transitions  -->
+        <Style Selector="ToggleButton#MenuToggle">
+            <Setter Property="Transitions">
+                <Transitions>
+                    <DoubleTransition
+                        Easing="CubicEaseOut"
+                        Property="Width"
+                        Duration="0:0:0.25" />
+                    <DoubleTransition
+                        Easing="CubicEaseOut"
+                        Property="Height"
+                        Duration="0:0:0.25" />
+                    <CornerRadiusTransition Property="CornerRadius" Duration="0:0:0.25" />
+                </Transitions>
+            </Setter>
+        </Style>
+        <Style Selector="ToggleButton#MenuToggle:not(:checked)">
+            <Setter Property="CornerRadius" Value="8" />
+            <Setter Property="Width" Value="44" />
+            <Setter Property="Height" Value="44" />
+        </Style>
+        <Style Selector="ToggleButton#MenuToggle:checked">
+            <Setter Property="CornerRadius" Value="22" />
+            <Setter Property="Width" Value="32" />
+            <Setter Property="Height" Value="32" />
+        </Style>
+
+        <!--  ToggleButton Background Hover & Pressed States  -->
+        <Style Selector="ToggleButton#MenuToggle /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Transitions">
+                <Transitions>
+                    <BrushTransition Property="Background" Duration="0:0:0.14" />
+                </Transitions>
+            </Setter>
+        </Style>
+        <Style Selector="ToggleButton#MenuToggle:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource ItemBgHover}" />
+        </Style>
+        <Style Selector="ToggleButton#MenuToggle:pressed /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource ItemBgSelected}" />
+        </Style>
+        <Style Selector="ToggleButton#MenuToggle:checked /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="Transparent" />
+        </Style>
+        <Style Selector="ToggleButton#MenuToggle:checked:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource ItemBgHover}" />
+        </Style>
+        <Style Selector="ToggleButton#MenuToggle:checked:pressed /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource ItemBgSelected}" />
+        </Style>
+
+        <!--  ToggleButton Icon Crossfade Animations  -->
+        <Style Selector="ToggleButton#MenuToggle:checked PathIcon#MenuBurgerIcon">
+            <Style.Animations>
+                <Animation FillMode="Forward" Duration="0:0:0.25">
+                    <KeyFrame Cue="0%">
+                        <Setter Property="Opacity" Value="1" />
+                    </KeyFrame>
+                    <KeyFrame Cue="49%">
+                        <Setter Property="Opacity" Value="0" />
+                    </KeyFrame>
+                    <KeyFrame Cue="100%">
+                        <Setter Property="Opacity" Value="0" />
+                    </KeyFrame>
+                </Animation>
+            </Style.Animations>
+        </Style>
+        <Style Selector="ToggleButton#MenuToggle:checked PathIcon#MenuCloseIcon">
+            <Style.Animations>
+                <Animation FillMode="Forward" Duration="0:0:0.25">
+                    <KeyFrame Cue="0%">
+                        <Setter Property="Opacity" Value="0" />
+                    </KeyFrame>
+                    <KeyFrame Cue="51%">
+                        <Setter Property="Opacity" Value="0" />
+                    </KeyFrame>
+                    <KeyFrame Cue="100%">
+                        <Setter Property="Opacity" Value="1" />
+                    </KeyFrame>
+                </Animation>
+            </Style.Animations>
+        </Style>
+        <Style Selector="ToggleButton#MenuToggle:not(:checked) PathIcon#MenuBurgerIcon">
+            <Style.Animations>
+                <Animation FillMode="Forward" Duration="0:0:0.25">
+                    <KeyFrame Cue="0%">
+                        <Setter Property="Opacity" Value="0" />
+                    </KeyFrame>
+                    <KeyFrame Cue="51%">
+                        <Setter Property="Opacity" Value="0" />
+                    </KeyFrame>
+                    <KeyFrame Cue="100%">
+                        <Setter Property="Opacity" Value="1" />
+                    </KeyFrame>
+                </Animation>
+            </Style.Animations>
+        </Style>
+        <Style Selector="ToggleButton#MenuToggle:not(:checked) PathIcon#MenuCloseIcon">
+            <Style.Animations>
+                <Animation FillMode="Forward" Duration="0:0:0.25">
+                    <KeyFrame Cue="0%">
+                        <Setter Property="Opacity" Value="1" />
+                    </KeyFrame>
+                    <KeyFrame Cue="49%">
+                        <Setter Property="Opacity" Value="0" />
+                    </KeyFrame>
+                    <KeyFrame Cue="100%">
+                        <Setter Property="Opacity" Value="0" />
+                    </KeyFrame>
+                </Animation>
+            </Style.Animations>
+        </Style>
+
+        <!--  Menu Item Labels Fade In/Out  -->
+        <Style Selector="TextBlock.menuItemLabel">
+            <Setter Property="Opacity" Value="0" />
+            <Setter Property="Transitions">
+                <Transitions>
+                    <DoubleTransition Property="Opacity" Duration="0:0:0.25" />
+                </Transitions>
+            </Setter>
+        </Style>
+        <Style Selector="SplitView#RootSplitView[IsPaneOpen=True] TextBlock.menuItemLabel">
+            <Setter Property="Opacity" Value="1" />
+        </Style>
+
+        <!--  ListBoxItem Base & Interaction States  -->
+        <Style Selector="ListBox#MenuListBox ListBoxItem">
+            <Setter Property="CornerRadius" Value="8" />
+            <Setter Property="Height" Value="44" />
+            <Setter Property="Margin" Value="10,3" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
+        </Style>
+        <Style Selector="ListBox#MenuListBox ListBoxItem /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource ItemBgTransparent}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ItemBgTransparent}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Transitions">
+                <Transitions>
+                    <BrushTransition Property="Background" Duration="0:0:0.14" />
+                    <BrushTransition Property="BorderBrush" Duration="0:0:0.14" />
+                </Transitions>
+            </Setter>
+        </Style>
+        <Style Selector="ListBox#MenuListBox ListBoxItem:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource ItemBgHover}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ItemBgTransparent}" />
+        </Style>
+        <Style Selector="ListBox#MenuListBox ListBoxItem:selected /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource ItemBgSelected}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ItemBorder}" />
+        </Style>
+    </UserControl.Styles>
+
+    <SplitView
+        Name="RootSplitView"
+        Background="Transparent"
+        CompactPaneLength="65"
+        DisplayMode="CompactOverlay"
+        OpenPaneLength="270"
+        PaneBackground="Transparent"
+        Theme="{StaticResource GlassSplitView}">
+
+        <SplitView.Pane>
+            <Grid ClipToBounds="True">
+                <acrylic:AcrylicSurface
+                    Name="PaneBackdrop"
+                    BlurRadius="35"
+                    Brightness="0.005"
+                    Contrast="1.0"
+                    CornerRadius="0"
+                    HighlightEnabled="False"
+                    RefractionAmount="0"
+                    RefractionHeight="0"
+                    ShadowEnabled="False"
+                    SurfaceColor="Transparent"
+                    TintColor="{DynamicResource GlassTintColor}"
+                    Vibrancy="1.0">
+
+                    <Grid RowDefinitions="54,Auto,*">
+                        <ToggleButton
+                            Name="MenuToggle"
+                            Grid.Row="0"
+                            Margin="10,10,10,0"
+                            HorizontalAlignment="Right"
+                            Background="Transparent"
+                            IsChecked="{Binding #RootSplitView.IsPaneOpen, Mode=TwoWay}">
+                            <Panel Width="20" Height="20">
+                                <PathIcon
+                                    Name="MenuBurgerIcon"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Data="{DynamicResource ThreeLinesIcon}"
+                                    Foreground="{DynamicResource IconActiveBrush}" />
+                                <PathIcon
+                                    Name="MenuCloseIcon"
+                                    Width="14"
+                                    Height="14"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Data="{DynamicResource CloseIcon}"
+                                    Foreground="{DynamicResource IconActiveBrush}" />
+                            </Panel>
+                        </ToggleButton>
+
+                        <controls:ExpandingSearchBar
+                            Name="SearchBar"
+                            Grid.Row="1"
+                            Margin="10,10,0,10"
+                            HorizontalAlignment="Left"
+                            IsExpanded="{Binding #RootSplitView.IsPaneOpen, Mode=TwoWay}" />
+
+                        <ListBox
+                            Name="MenuListBox"
+                            Grid.Row="2"
+                            Background="Transparent"
+                            ItemsSource="{Binding $parent[controls:GlassSideBar].MenuContent}"
+                            SelectedIndex="0">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate DataType="controls:MenuItemData">
+                                    <Grid
+                                        Background="Transparent"
+                                        ColumnDefinitions="44, *"
+                                        ToolTip.Tip="{Binding Label}">
+                                        <PathIcon
+                                            Grid.Column="0"
+                                            Width="20"
+                                            Height="20"
+                                            HorizontalAlignment="Center"
+                                            Data="{Binding Icon}" />
+
+                                        <TextBlock
+                                            Name="MenuItemLabel"
+                                            Grid.Column="1"
+                                            Margin="10,0,0,0"
+                                            VerticalAlignment="Center"
+                                            Classes="menuItemLabel"
+                                            Text="{Binding Label}" />
+                                    </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Grid>
+                </acrylic:AcrylicSurface>
+
+                <Border
+                    Margin="0,0,1,0"
+                    BorderBrush="{DynamicResource PaneInnerEdgeBrush}"
+                    BorderThickness="0,0,1,0"
+                    IsHitTestVisible="False" />
+                <Border
+                    BorderBrush="{DynamicResource PaneOuterEdgeBrush}"
+                    BorderThickness="0,0,1,0"
+                    IsHitTestVisible="False" />
+            </Grid>
+        </SplitView.Pane>
+
+        <TransitioningContentControl Name="PageContent" Content="{Binding #MenuListBox.SelectedItem.(controls:MenuItemData).Content}">
+            <TransitioningContentControl.PageTransition>
+                <CrossFade Duration="0:0:0.15" />
+            </TransitioningContentControl.PageTransition>
+        </TransitioningContentControl>
+    </SplitView>
+</UserControl>

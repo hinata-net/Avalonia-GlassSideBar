@@ -1,0 +1,488 @@
+<UserControl
+    x:Class="GlassSideBar.Demo.Pages.DashboardPage"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Background="Transparent">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="36,32,40,40" Spacing="28">
+
+            <Grid ColumnDefinitions="*,Auto">
+                <StackPanel Spacing="5">
+                    <TextBlock
+                        FontSize="12"
+                        Foreground="{DynamicResource SecondaryTextBrush}"
+                        Text="Workspace / Overview" />
+                    <TextBlock
+                        FontSize="32"
+                        FontWeight="SemiBold"
+                        Foreground="{DynamicResource PrimaryTextBrush}"
+                        Text="Your week" />
+                    <TextBlock
+                        FontSize="14"
+                        Foreground="{DynamicResource SecondaryTextBrush}"
+                        Text="A little progress, every day." />
+                </StackPanel>
+
+                <Button
+                    Grid.Column="1"
+                    Padding="14,9"
+                    VerticalAlignment="Center"
+                    Classes="subtleButton"
+                    Content="Last 7 days  ▾" />
+            </Grid>
+
+            <Grid ColumnDefinitions="*,*,*,*" ColumnSpacing="14">
+                <Border
+                    Padding="20"
+                    Background="{DynamicResource CardBackgroundBrush}"
+                    BorderBrush="{DynamicResource CardBorderBrush}"
+                    BorderThickness="1"
+                    CornerRadius="16">
+                    <StackPanel Spacing="7">
+                        <TextBlock
+                            FontSize="12"
+                            Foreground="{DynamicResource SecondaryTextBrush}"
+                            Text="Revenue" />
+                        <TextBlock
+                            FontSize="27"
+                            FontWeight="SemiBold"
+                            Foreground="{DynamicResource PrimaryTextBrush}"
+                            Text="$24,680" />
+                        <TextBlock
+                            FontSize="12"
+                            Foreground="{DynamicResource PositiveTextBrush}"
+                            Text="↗ 12.8% this week" />
+                    </StackPanel>
+                </Border>
+
+                <Border
+                    Grid.Column="1"
+                    Padding="20"
+                    Background="{DynamicResource CardBackgroundBrush}"
+                    BorderBrush="{DynamicResource CardBorderBrush}"
+                    BorderThickness="1"
+                    CornerRadius="16">
+                    <StackPanel Spacing="7">
+                        <TextBlock
+                            FontSize="12"
+                            Foreground="{DynamicResource SecondaryTextBrush}"
+                            Text="Active users" />
+                        <TextBlock
+                            FontSize="27"
+                            FontWeight="SemiBold"
+                            Foreground="{DynamicResource PrimaryTextBrush}"
+                            Text="1,842" />
+                        <TextBlock
+                            FontSize="12"
+                            Foreground="{DynamicResource PositiveTextBrush}"
+                            Text="↗ 8.2% this week" />
+                    </StackPanel>
+                </Border>
+
+                <Border
+                    Grid.Column="2"
+                    Padding="20"
+                    Background="{DynamicResource CardBackgroundBrush}"
+                    BorderBrush="{DynamicResource CardBorderBrush}"
+                    BorderThickness="1"
+                    CornerRadius="16">
+                    <StackPanel Spacing="7">
+                        <TextBlock
+                            FontSize="12"
+                            Foreground="{DynamicResource SecondaryTextBrush}"
+                            Text="Conversion" />
+                        <TextBlock
+                            FontSize="27"
+                            FontWeight="SemiBold"
+                            Foreground="{DynamicResource PrimaryTextBrush}"
+                            Text="4.32%" />
+                        <TextBlock
+                            FontSize="12"
+                            Foreground="{DynamicResource PositiveTextBrush}"
+                            Text="↗ 0.6% this week" />
+                    </StackPanel>
+                </Border>
+
+                <Border
+                    Grid.Column="3"
+                    Padding="20"
+                    Background="{DynamicResource CardBackgroundBrush}"
+                    BorderBrush="{DynamicResource CardBorderBrush}"
+                    BorderThickness="1"
+                    CornerRadius="16">
+                    <StackPanel Spacing="7">
+                        <TextBlock
+                            FontSize="12"
+                            Foreground="{DynamicResource SecondaryTextBrush}"
+                            Text="Avg. session" />
+                        <TextBlock
+                            FontSize="27"
+                            FontWeight="SemiBold"
+                            Foreground="{DynamicResource PrimaryTextBrush}"
+                            Text="6m 24s" />
+                        <TextBlock
+                            FontSize="12"
+                            Foreground="{DynamicResource MutedTextBrush}"
+                            Text="↘ 2.1% this week" />
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+            <Grid ColumnDefinitions="1.65*,*" ColumnSpacing="18">
+                <Border
+                    Padding="24"
+                    Background="{DynamicResource CardBackgroundBrush}"
+                    BorderBrush="{DynamicResource CardBorderBrush}"
+                    BorderThickness="1"
+                    CornerRadius="16">
+                    <StackPanel Spacing="24">
+                        <Grid ColumnDefinitions="*,Auto">
+                            <StackPanel Spacing="5">
+                                <TextBlock
+                                    FontSize="17"
+                                    FontWeight="SemiBold"
+                                    Foreground="{DynamicResource PrimaryTextBrush}"
+                                    Text="Revenue" />
+                                <TextBlock
+                                    FontSize="12"
+                                    Foreground="{DynamicResource SecondaryTextBrush}"
+                                    Text="Daily totals · this week" />
+                            </StackPanel>
+                            <TextBlock
+                                Grid.Column="1"
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                Foreground="{DynamicResource SecondaryTextBrush}"
+                                Text="$24,680 total" />
+                        </Grid>
+
+                        <Grid
+                            Height="190"
+                            ColumnDefinitions="*,*,*,*,*,*,*"
+                            ColumnSpacing="16">
+                            <StackPanel
+                                Grid.Column="0"
+                                VerticalAlignment="Bottom"
+                                Spacing="9">
+                                <Border
+                                    Height="64"
+                                    Background="{DynamicResource AccentGradientBrush}"
+                                    CornerRadius="4"
+                                    Opacity="0.62" />
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    FontSize="11"
+                                    Foreground="{DynamicResource MutedTextBrush}"
+                                    Text="Mon" />
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Column="1"
+                                VerticalAlignment="Bottom"
+                                Spacing="9">
+                                <Border
+                                    Height="98"
+                                    Background="{DynamicResource AccentGradientBrush}"
+                                    CornerRadius="4"
+                                    Opacity="0.62" />
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    FontSize="11"
+                                    Foreground="{DynamicResource MutedTextBrush}"
+                                    Text="Tue" />
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Column="2"
+                                VerticalAlignment="Bottom"
+                                Spacing="9">
+                                <Border
+                                    Height="78"
+                                    Background="{DynamicResource AccentGradientBrush}"
+                                    CornerRadius="4"
+                                    Opacity="0.62" />
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    FontSize="11"
+                                    Foreground="{DynamicResource MutedTextBrush}"
+                                    Text="Wed" />
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Column="3"
+                                VerticalAlignment="Bottom"
+                                Spacing="9">
+                                <Border
+                                    Height="126"
+                                    Background="{DynamicResource AccentGradientBrush}"
+                                    CornerRadius="4"
+                                    Opacity="0.62" />
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    FontSize="11"
+                                    Foreground="{DynamicResource MutedTextBrush}"
+                                    Text="Thu" />
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Column="4"
+                                VerticalAlignment="Bottom"
+                                Spacing="9">
+                                <Border
+                                    Height="91"
+                                    Background="{DynamicResource AccentGradientBrush}"
+                                    CornerRadius="4"
+                                    Opacity="0.62" />
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    FontSize="11"
+                                    Foreground="{DynamicResource MutedTextBrush}"
+                                    Text="Fri" />
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Column="5"
+                                VerticalAlignment="Bottom"
+                                Spacing="9">
+                                <Border
+                                    Height="154"
+                                    Background="{DynamicResource AccentGradientBrush}"
+                                    CornerRadius="4" />
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    FontSize="11"
+                                    Foreground="{DynamicResource AccentForegroundBrush}"
+                                    Text="Sat" />
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Column="6"
+                                VerticalAlignment="Bottom"
+                                Spacing="9">
+                                <Border
+                                    Height="112"
+                                    Background="{DynamicResource AccentGradientBrush}"
+                                    CornerRadius="4"
+                                    Opacity="0.62" />
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    FontSize="11"
+                                    Foreground="{DynamicResource MutedTextBrush}"
+                                    Text="Sun" />
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+
+                <Border
+                    Grid.Column="1"
+                    Padding="24"
+                    Background="{DynamicResource CardBackgroundBrush}"
+                    BorderBrush="{DynamicResource CardBorderBrush}"
+                    BorderThickness="1"
+                    CornerRadius="16">
+                    <StackPanel Spacing="22">
+                        <StackPanel Spacing="5">
+                            <TextBlock
+                                FontSize="17"
+                                FontWeight="SemiBold"
+                                Foreground="{DynamicResource PrimaryTextBrush}"
+                                Text="Where people find you" />
+                            <TextBlock
+                                FontSize="12"
+                                Foreground="{DynamicResource SecondaryTextBrush}"
+                                Text="Sessions by source" />
+                        </StackPanel>
+
+                        <StackPanel Spacing="9">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <TextBlock
+                                    FontSize="13"
+                                    Foreground="{DynamicResource BodyTextBrush}"
+                                    Text="Direct" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    FontSize="12"
+                                    Foreground="{DynamicResource SecondaryTextBrush}"
+                                    Text="42%" />
+                            </Grid>
+                            <ProgressBar
+                                Height="5"
+                                Background="{DynamicResource SeparatorBrush}"
+                                Foreground="{DynamicResource AccentForegroundBrush}"
+                                Maximum="100"
+                                Value="42" />
+                        </StackPanel>
+
+                        <StackPanel Spacing="9">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <TextBlock
+                                    FontSize="13"
+                                    Foreground="{DynamicResource BodyTextBrush}"
+                                    Text="Organic search" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    FontSize="12"
+                                    Foreground="{DynamicResource SecondaryTextBrush}"
+                                    Text="31%" />
+                            </Grid>
+                            <ProgressBar
+                                Height="5"
+                                Background="{DynamicResource SeparatorBrush}"
+                                Foreground="{DynamicResource ElectricForegroundBrush}"
+                                Maximum="100"
+                                Value="31" />
+                        </StackPanel>
+
+                        <StackPanel Spacing="9">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <TextBlock
+                                    FontSize="13"
+                                    Foreground="{DynamicResource BodyTextBrush}"
+                                    Text="Social" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    FontSize="12"
+                                    Foreground="{DynamicResource SecondaryTextBrush}"
+                                    Text="18%" />
+                            </Grid>
+                            <ProgressBar
+                                Height="5"
+                                Background="{DynamicResource SeparatorBrush}"
+                                Foreground="{DynamicResource AccentForegroundBrush}"
+                                Maximum="100"
+                                Value="18" />
+                        </StackPanel>
+
+                        <StackPanel Spacing="9">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <TextBlock
+                                    FontSize="13"
+                                    Foreground="{DynamicResource BodyTextBrush}"
+                                    Text="Referral" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    FontSize="12"
+                                    Foreground="{DynamicResource SecondaryTextBrush}"
+                                    Text="9%" />
+                            </Grid>
+                            <ProgressBar
+                                Height="5"
+                                Background="{DynamicResource SeparatorBrush}"
+                                Foreground="{DynamicResource ElectricForegroundBrush}"
+                                Maximum="100"
+                                Value="9" />
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+            <StackPanel Spacing="16">
+                <Grid ColumnDefinitions="*,Auto">
+                    <StackPanel Spacing="5">
+                        <TextBlock
+                            FontSize="17"
+                            FontWeight="SemiBold"
+                            Foreground="{DynamicResource PrimaryTextBrush}"
+                            Text="Recent activity" />
+                        <TextBlock
+                            FontSize="12"
+                            Foreground="{DynamicResource SecondaryTextBrush}"
+                            Text="A few recent things from your workspace." />
+                    </StackPanel>
+                    <Button
+                        Grid.Column="1"
+                        Padding="12,7"
+                        VerticalAlignment="Center"
+                        Classes="subtleButton"
+                        Content="View all" />
+                </Grid>
+
+                <Border Height="1" Background="{DynamicResource SeparatorBrush}" />
+
+                <Grid ColumnDefinitions="*,Auto" ColumnSpacing="20">
+                    <StackPanel Spacing="4">
+                        <TextBlock
+                            FontSize="13"
+                            Foreground="{DynamicResource BodyTextBrush}"
+                            Text="Subscription renewed" />
+                        <TextBlock
+                            FontSize="11"
+                            Foreground="{DynamicResource MutedTextBrush}"
+                            Text="Pro plan · Acme Studio" />
+                    </StackPanel>
+                    <StackPanel
+                        Grid.Column="1"
+                        HorizontalAlignment="Right"
+                        Spacing="4">
+                        <TextBlock
+                            HorizontalAlignment="Right"
+                            FontSize="12"
+                            Foreground="{DynamicResource BodyTextBrush}"
+                            Text="$249.00" />
+                        <TextBlock
+                            HorizontalAlignment="Right"
+                            FontSize="11"
+                            Foreground="{DynamicResource MutedTextBrush}"
+                            Text="Today, 10:42" />
+                    </StackPanel>
+                </Grid>
+
+                <Border Height="1" Background="{DynamicResource SeparatorBrush}" />
+
+                <Grid ColumnDefinitions="*,Auto" ColumnSpacing="20">
+                    <StackPanel Spacing="4">
+                        <TextBlock
+                            FontSize="13"
+                            Foreground="{DynamicResource BodyTextBrush}"
+                            Text="New workspace member" />
+                        <TextBlock
+                            FontSize="11"
+                            Foreground="{DynamicResource MutedTextBrush}"
+                            Text="Taylor Morgan joined Northstar" />
+                    </StackPanel>
+                    <StackPanel
+                        Grid.Column="1"
+                        HorizontalAlignment="Right"
+                        Spacing="4">
+                        <TextBlock
+                            HorizontalAlignment="Right"
+                            FontSize="12"
+                            Foreground="{DynamicResource BodyTextBrush}"
+                            Text="Invite" />
+                        <TextBlock
+                            HorizontalAlignment="Right"
+                            FontSize="11"
+                            Foreground="{DynamicResource MutedTextBrush}"
+                            Text="Today, 09:18" />
+                    </StackPanel>
+                </Grid>
+
+                <Border Height="1" Background="{DynamicResource SeparatorBrush}" />
+
+                <Grid ColumnDefinitions="*,Auto" ColumnSpacing="20">
+                    <StackPanel Spacing="4">
+                        <TextBlock
+                            FontSize="13"
+                            Foreground="{DynamicResource BodyTextBrush}"
+                            Text="Export completed" />
+                        <TextBlock
+                            FontSize="11"
+                            Foreground="{DynamicResource MutedTextBrush}"
+                            Text="Monthly analytics report · CSV" />
+                    </StackPanel>
+                    <StackPanel
+                        Grid.Column="1"
+                        HorizontalAlignment="Right"
+                        Spacing="4">
+                        <TextBlock
+                            HorizontalAlignment="Right"
+                            FontSize="12"
+                            Foreground="{DynamicResource BodyTextBrush}"
+                            Text="Report" />
+                        <TextBlock
+                            HorizontalAlignment="Right"
+                            FontSize="11"
+                            Foreground="{DynamicResource MutedTextBrush}"
+                            Text="Yesterday" />
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

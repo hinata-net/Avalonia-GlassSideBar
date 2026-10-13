@@ -1,0 +1,53 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Dark">
+            <Color x:Key="GlassTintColor">Transparent</Color>
+
+            <SolidColorBrush x:Key="PrimaryTextBrush" Color="#F5F7FA" />
+            <SolidColorBrush x:Key="IconDefaultBrush" Color="#858E9B" />
+            <SolidColorBrush x:Key="IconActiveBrush" Color="#F5F7FA" />
+
+            <SolidColorBrush x:Key="ItemBgTransparent" Color="Transparent" />
+            <SolidColorBrush x:Key="ItemBgHover" Color="#10FFFFFF" />
+            <SolidColorBrush x:Key="ItemBgSelected" Color="#20FFFFFF" />
+            <SolidColorBrush x:Key="ItemBorder" Color="#15FFFFFF" />
+
+            <SolidColorBrush x:Key="PaneOuterEdgeBrush" Color="#50000000" />
+
+            <LinearGradientBrush x:Key="PaneInnerEdgeBrush" StartPoint="0%,0%" EndPoint="0%,100%">
+                <GradientStop Offset="0" Color="#1AFFFFFF" />
+                <GradientStop Offset="0.5" Color="#14FFFFFF" />
+                <GradientStop Offset="1" Color="#0EFFFFFF" />
+            </LinearGradientBrush>
+        </ResourceDictionary>
+
+        <ResourceDictionary x:Key="Light">
+            <Color x:Key="GlassTintColor">Transparent</Color>
+
+            <SolidColorBrush x:Key="PrimaryTextBrush" Color="#172033" />
+            <SolidColorBrush x:Key="IconDefaultBrush" Color="#8A94A6" />
+            <SolidColorBrush x:Key="IconActiveBrush" Color="#172033" />
+
+            <SolidColorBrush x:Key="ItemBgTransparent" Color="Transparent" />
+            <SolidColorBrush x:Key="ItemBgHover" Color="#0A000000" />
+            <SolidColorBrush x:Key="ItemBgSelected" Color="#14000000" />
+            <SolidColorBrush x:Key="ItemBorder" Color="#10000000" />
+
+            <SolidColorBrush x:Key="PaneOuterEdgeBrush" Color="#12000000" />
+
+            <SolidColorBrush x:Key="PaneInnerEdgeBrush" Color="#B3FFFFFF" />
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceInclude Source="SplitViewTheme.axaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <StreamGeometry x:Key="ThreeLinesIcon">
+        M3 6.25A.75.75 0 013.75 5.5h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.25zm0 5.5A.75.75 0 013.75 11h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75zm0 5.5a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z
+    </StreamGeometry>
+
+    <StreamGeometry x:Key="CloseIcon">
+        M6.28 5.22a.75.75 0 00-1.06 1.06L10.94 12l-5.72 5.72a.75.75 0 101.06 1.06L12 13.06l5.72 5.72a.75.75 0 001.06-1.06L13.06 12l5.72-5.72a.75.75 0 00-1.06-1.06L12 10.94 6.28 5.22z
+    </StreamGeometry>
+</ResourceDictionary>

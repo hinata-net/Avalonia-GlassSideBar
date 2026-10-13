@@ -1,0 +1,304 @@
+<UserControl
+    x:Class="GlassSideBar.Demo.Pages.SettingsPage"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Background="Transparent">
+
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="36,32,40,40" Spacing="22">
+            <StackPanel Spacing="5">
+                <TextBlock
+                    FontSize="12"
+                    Foreground="{DynamicResource SecondaryTextBrush}"
+                    Text="Workspace / Preferences" />
+                <TextBlock
+                    FontSize="32"
+                    FontWeight="SemiBold"
+                    Foreground="{DynamicResource PrimaryTextBrush}"
+                    Text="Settings" />
+                <TextBlock
+                    FontSize="14"
+                    Foreground="{DynamicResource SecondaryTextBrush}"
+                    Text="Make this workspace feel right for you." />
+            </StackPanel>
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="16">
+                <Border
+                    Padding="22"
+                    Background="{DynamicResource CardBackgroundBrush}"
+                    BorderBrush="{DynamicResource CardBorderBrush}"
+                    BorderThickness="1"
+                    CornerRadius="16">
+                    <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="18">
+                        <Border
+                            Width="48"
+                            Height="48"
+                            VerticalAlignment="Center"
+                            Background="{DynamicResource AccentBackgroundBrush}"
+                            CornerRadius="24">
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontSize="22"
+                                Foreground="{DynamicResource AccentForegroundBrush}"
+                                Text="◐" />
+                        </Border>
+
+                        <StackPanel
+                            Grid.Column="1"
+                            VerticalAlignment="Center"
+                            Spacing="5">
+                            <TextBlock
+                                FontSize="17"
+                                FontWeight="SemiBold"
+                                Foreground="{DynamicResource PrimaryTextBrush}"
+                                Text="Appearance" />
+                            <TextBlock
+                                FontSize="13"
+                                Foreground="{DynamicResource SecondaryTextBrush}"
+                                Text="Choose a theme for this workspace."
+                                TextTrimming="CharacterEllipsis" />
+                        </StackPanel>
+
+                        <ComboBox
+                            x:Name="ThemeComboBox"
+                            Grid.Column="2"
+                            MinWidth="130"
+                            VerticalAlignment="Center"
+                            Background="{DynamicResource InputBackgroundBrush}"
+                            BorderBrush="{DynamicResource InputBorderBrush}"
+                            Foreground="{DynamicResource BodyTextBrush}"
+                            SelectedIndex="0"
+                            SelectionChanged="OnThemeSelectionChanged">
+                            <ComboBoxItem Content="Dark" />
+                            <ComboBoxItem Content="Light" />
+                            <ComboBoxItem Content="System default" />
+                        </ComboBox>
+                    </Grid>
+                </Border>
+
+                <Border
+                    Grid.Column="1"
+                    Padding="22"
+                    Background="{DynamicResource CardBackgroundBrush}"
+                    BorderBrush="{DynamicResource CardBorderBrush}"
+                    BorderThickness="1"
+                    CornerRadius="16">
+                    <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="18">
+                        <Border
+                            Width="54"
+                            Height="54"
+                            VerticalAlignment="Center"
+                            Background="{DynamicResource AccentBackgroundBrush}"
+                            CornerRadius="27">
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontSize="17"
+                                FontWeight="SemiBold"
+                                Foreground="{DynamicResource AccentForegroundBrush}"
+                                Text="JD" />
+                        </Border>
+
+                        <StackPanel
+                            Grid.Column="1"
+                            VerticalAlignment="Center"
+                            Spacing="5">
+                            <TextBlock
+                                FontSize="17"
+                                FontWeight="SemiBold"
+                                Foreground="{DynamicResource PrimaryTextBrush}"
+                                Text="Jordan Davis"
+                                TextTrimming="CharacterEllipsis" />
+                            <TextBlock
+                                FontSize="13"
+                                Foreground="{DynamicResource SecondaryTextBrush}"
+                                Text="jordan.davis@example.com"
+                                TextTrimming="CharacterEllipsis" />
+                            <TextBlock
+                                FontSize="12"
+                                Foreground="{DynamicResource MutedTextBrush}"
+                                Text="Personal workspace · Free plan"
+                                TextTrimming="CharacterEllipsis" />
+                        </StackPanel>
+
+                        <Button
+                            Grid.Column="2"
+                            Padding="14,9"
+                            VerticalAlignment="Center"
+                            Classes="subtleButton"
+                            Content="Edit profile" />
+                    </Grid>
+                </Border>
+            </Grid>
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="16">
+
+                <Border
+                    Padding="24"
+                    Background="{DynamicResource CardBackgroundBrush}"
+                    BorderBrush="{DynamicResource CardBorderBrush}"
+                    BorderThickness="1"
+                    CornerRadius="16">
+                    <StackPanel Spacing="20">
+                        <StackPanel Spacing="5">
+                            <TextBlock
+                                FontSize="17"
+                                FontWeight="SemiBold"
+                                Foreground="{DynamicResource PrimaryTextBrush}"
+                                Text="Preferences" />
+                            <TextBlock
+                                FontSize="12"
+                                Foreground="{DynamicResource SecondaryTextBrush}"
+                                Text="Notifications and workspace defaults." />
+                        </StackPanel>
+
+                        <Grid ColumnDefinitions="*,Auto" ColumnSpacing="16">
+                            <StackPanel Spacing="4">
+                                <TextBlock
+                                    FontSize="13"
+                                    Foreground="{DynamicResource BodyTextBrush}"
+                                    Text="Email notifications" />
+                                <TextBlock
+                                    FontSize="11"
+                                    Foreground="{DynamicResource MutedTextBrush}"
+                                    Text="Updates about your workspace." />
+                            </StackPanel>
+                            <ToggleSwitch
+                                Grid.Column="1"
+                                VerticalAlignment="Center"
+                                Classes="WorkspaceToggle"
+                                IsChecked="True" />
+                        </Grid>
+
+                        <Border Height="1" Background="{DynamicResource SeparatorBrush}" />
+
+                        <Grid ColumnDefinitions="*,Auto" ColumnSpacing="16">
+                            <StackPanel Spacing="4">
+                                <TextBlock
+                                    FontSize="13"
+                                    Foreground="{DynamicResource BodyTextBrush}"
+                                    Text="Product tips" />
+                                <TextBlock
+                                    FontSize="11"
+                                    Foreground="{DynamicResource MutedTextBrush}"
+                                    Text="Occasional tips and announcements." />
+                            </StackPanel>
+                            <ToggleSwitch
+                                Grid.Column="1"
+                                VerticalAlignment="Center"
+                                Classes="WorkspaceToggle"
+                                IsChecked="False" />
+                        </Grid>
+
+                        <Border Height="1" Background="{DynamicResource SeparatorBrush}" />
+
+                        <Grid ColumnDefinitions="*,Auto" ColumnSpacing="16">
+                            <StackPanel Spacing="4">
+                                <TextBlock
+                                    FontSize="13"
+                                    Foreground="{DynamicResource BodyTextBrush}"
+                                    Text="Automatic updates" />
+                                <TextBlock
+                                    FontSize="11"
+                                    Foreground="{DynamicResource MutedTextBrush}"
+                                    Text="Install updates automatically." />
+                            </StackPanel>
+                            <ToggleSwitch
+                                Grid.Column="1"
+                                VerticalAlignment="Center"
+                                Classes="WorkspaceToggle"
+                                IsChecked="True" />
+                        </Grid>
+
+                        <Border Height="1" Background="{DynamicResource SeparatorBrush}" />
+
+                        <StackPanel Spacing="8">
+                            <TextBlock
+                                FontSize="13"
+                                Foreground="{DynamicResource BodyTextBrush}"
+                                Text="Interface language" />
+                            <TextBlock
+                                FontSize="11"
+                                Foreground="{DynamicResource MutedTextBrush}"
+                                Text="Choose the language used in the workspace." />
+                            <ComboBox
+                                HorizontalAlignment="Stretch"
+                                Background="{DynamicResource InputBackgroundBrush}"
+                                BorderBrush="{DynamicResource InputBorderBrush}"
+                                Foreground="{DynamicResource BodyTextBrush}"
+                                IsEnabled="False"
+                                SelectedIndex="0">
+                                <ComboBoxItem Content="English (United States)" />
+                                <ComboBoxItem Content="Deutsch" />
+                                <ComboBoxItem Content="Français" />
+                            </ComboBox>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+
+                <Border
+                    Grid.Column="1"
+                    Padding="24"
+                    Background="{DynamicResource CardBackgroundBrush}"
+                    BorderBrush="{DynamicResource CardBorderBrush}"
+                    BorderThickness="1"
+                    CornerRadius="16">
+                    <StackPanel Spacing="20">
+                        <StackPanel Spacing="5">
+                            <TextBlock
+                                FontSize="17"
+                                FontWeight="SemiBold"
+                                Foreground="{DynamicResource PrimaryTextBrush}"
+                                Text="Security" />
+                            <TextBlock
+                                FontSize="12"
+                                Foreground="{DynamicResource SecondaryTextBrush}"
+                                Text="Your account is protected." />
+                        </StackPanel>
+
+                        <Grid ColumnDefinitions="*,Auto" ColumnSpacing="16">
+                            <StackPanel Spacing="4">
+                                <TextBlock
+                                    FontSize="13"
+                                    Foreground="{DynamicResource BodyTextBrush}"
+                                    Text="Two-factor authentication" />
+                                <TextBlock
+                                    FontSize="11"
+                                    Foreground="{DynamicResource MutedTextBrush}"
+                                    Text="Extra protection for your account." />
+                            </StackPanel>
+                            <TextBlock
+                                Grid.Column="1"
+                                VerticalAlignment="Center"
+                                FontSize="12"
+                                Foreground="{DynamicResource PositiveTextBrush}"
+                                Text="Enabled" />
+                        </Grid>
+
+                        <Border Height="1" Background="{DynamicResource SeparatorBrush}" />
+
+                        <Grid ColumnDefinitions="*,Auto" ColumnSpacing="16">
+                            <StackPanel Spacing="4">
+                                <TextBlock
+                                    FontSize="13"
+                                    Foreground="{DynamicResource BodyTextBrush}"
+                                    Text="Password" />
+                                <TextBlock
+                                    FontSize="11"
+                                    Foreground="{DynamicResource MutedTextBrush}"
+                                    Text="Last changed 3 months ago." />
+                            </StackPanel>
+                            <Button
+                                Grid.Column="1"
+                                Padding="14,8"
+                                VerticalAlignment="Center"
+                                Classes="subtleButton"
+                                Content="Change password" />
+                        </Grid>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

@@ -1,0 +1,492 @@
+<UserControl
+    x:Class="GlassSideBar.Demo.Pages.ProjectsPage"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Background="Transparent">
+
+    <UserControl.Styles>
+        <Style Selector="TextBox.projectSearch">
+            <Setter Property="Padding" Value="14,10" />
+            <Setter Property="Foreground" Value="{DynamicResource BodyTextBrush}" />
+            <Setter Property="CaretBrush" Value="{DynamicResource PrimaryTextBrush}" />
+            <Setter Property="SelectionBrush" Value="{DynamicResource SeparatorBrush}" />
+        </Style>
+
+        <Style Selector="TextBox.projectSearch /template/ Border#PART_BorderElement">
+            <Setter Property="Background" Value="{DynamicResource InputBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource InputBorderBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="CornerRadius" Value="8" />
+        </Style>
+
+        <Style Selector="TextBox.projectSearch:pointerover /template/ Border#PART_BorderElement">
+            <Setter Property="Background" Value="{DynamicResource InputBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource SecondaryTextBrush}" />
+        </Style>
+
+        <Style Selector="TextBox.projectSearch:focus /template/ Border#PART_BorderElement">
+            <Setter Property="Background" Value="{DynamicResource InputBackgroundBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ElectricForegroundBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+        </Style>
+    </UserControl.Styles>
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="36,32,40,40" Spacing="24">
+
+            <Grid ColumnDefinitions="*,Auto">
+                <StackPanel Spacing="5">
+                    <TextBlock
+                        FontSize="12"
+                        Foreground="{DynamicResource SecondaryTextBrush}"
+                        Text="Workspace / Projects" />
+                    <TextBlock
+                        FontSize="32"
+                        FontWeight="SemiBold"
+                        Foreground="{DynamicResource PrimaryTextBrush}"
+                        Text="Projects" />
+                    <TextBlock
+                        FontSize="14"
+                        Foreground="{DynamicResource SecondaryTextBrush}"
+                        Text="Keep your team's work moving forward." />
+                </StackPanel>
+
+                <Button
+                    Grid.Column="1"
+                    Padding="16,10"
+                    VerticalAlignment="Center"
+                    Classes="subtleButton"
+                    Content="+  New project" />
+            </Grid>
+
+            <Grid ColumnDefinitions="*,*,*" ColumnSpacing="14">
+                <Border
+                    Padding="18"
+                    Background="{DynamicResource CardBackgroundBrush}"
+                    BorderBrush="{DynamicResource CardBorderBrush}"
+                    BorderThickness="1"
+                    CornerRadius="14">
+                    <StackPanel Spacing="6">
+                        <TextBlock
+                            FontSize="12"
+                            Foreground="{DynamicResource SecondaryTextBrush}"
+                            Text="Total projects" />
+                        <TextBlock
+                            FontSize="25"
+                            FontWeight="SemiBold"
+                            Foreground="{DynamicResource PrimaryTextBrush}"
+                            Text="04" />
+                        <TextBlock
+                            FontSize="11"
+                            Foreground="{DynamicResource MutedTextBrush}"
+                            Text="Across this workspace" />
+                    </StackPanel>
+                </Border>
+
+                <Border
+                    Grid.Column="1"
+                    Padding="18"
+                    Background="{DynamicResource CardBackgroundBrush}"
+                    BorderBrush="{DynamicResource CardBorderBrush}"
+                    BorderThickness="1"
+                    CornerRadius="14">
+                    <StackPanel Spacing="6">
+                        <TextBlock
+                            FontSize="12"
+                            Foreground="{DynamicResource SecondaryTextBrush}"
+                            Text="In progress" />
+                        <TextBlock
+                            FontSize="25"
+                            FontWeight="SemiBold"
+                            Foreground="{DynamicResource ElectricForegroundBrush}"
+                            Text="01" />
+                        <TextBlock
+                            FontSize="11"
+                            Foreground="{DynamicResource MutedTextBrush}"
+                            Text="Moving ahead this week" />
+                    </StackPanel>
+                </Border>
+
+                <Border
+                    Grid.Column="2"
+                    Padding="18"
+                    Background="{DynamicResource CardBackgroundBrush}"
+                    BorderBrush="{DynamicResource CardBorderBrush}"
+                    BorderThickness="1"
+                    CornerRadius="14">
+                    <StackPanel Spacing="6">
+                        <TextBlock
+                            FontSize="12"
+                            Foreground="{DynamicResource SecondaryTextBrush}"
+                            Text="Due this week" />
+                        <TextBlock
+                            FontSize="25"
+                            FontWeight="SemiBold"
+                            Foreground="{DynamicResource PositiveTextBrush}"
+                            Text="02" />
+                        <TextBlock
+                            FontSize="11"
+                            Foreground="{DynamicResource MutedTextBrush}"
+                            Text="One milestone at risk" />
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+            <Grid ColumnDefinitions="*,Auto" ColumnSpacing="12">
+                <TextBox
+                    x:Name="ProjectSearchBox"
+                    Classes="projectSearch"
+                    PlaceholderText="Search projects..."
+                    TextChanged="OnSearchTextChanged" />
+
+                <ComboBox
+                    x:Name="StatusFilterComboBox"
+                    Grid.Column="1"
+                    MinWidth="150"
+                    Background="{DynamicResource InputBackgroundBrush}"
+                    BorderBrush="{DynamicResource InputBorderBrush}"
+                    Foreground="{DynamicResource BodyTextBrush}"
+                    SelectedIndex="0"
+                    SelectionChanged="OnStatusSelectionChanged">
+                    <ComboBoxItem Content="All projects" />
+                    <ComboBoxItem Content="In progress" />
+                    <ComboBoxItem Content="At risk" />
+                    <ComboBoxItem Content="Completed" />
+                    <ComboBoxItem Content="Planning" />
+                </ComboBox>
+            </Grid>
+
+            <Border
+                Padding="20"
+                Background="{DynamicResource CardBackgroundBrush}"
+                BorderBrush="{DynamicResource CardBorderBrush}"
+                BorderThickness="1"
+                CornerRadius="16">
+                <StackPanel x:Name="ProjectList" Spacing="0">
+
+                    <Grid Margin="0,0,0,16" ColumnDefinitions="*,Auto">
+                        <StackPanel Spacing="4">
+                            <TextBlock
+                                FontSize="17"
+                                FontWeight="SemiBold"
+                                Foreground="{DynamicResource PrimaryTextBrush}"
+                                Text="All projects" />
+                            <TextBlock
+                                FontSize="12"
+                                Foreground="{DynamicResource SecondaryTextBrush}"
+                                Text="A snapshot of your team's current work." />
+                        </StackPanel>
+                        <TextBlock
+                            x:Name="ProjectCountText"
+                            Grid.Column="1"
+                            VerticalAlignment="Center"
+                            FontSize="12"
+                            Foreground="{DynamicResource MutedTextBrush}"
+                            Text="4 projects" />
+                    </Grid>
+
+                    <Border Height="1" Background="{DynamicResource SeparatorBrush}" />
+
+                    <Border
+                        x:Name="AtlasCard"
+                        Padding="0,18"
+                        Tag="In progress|Atlas Mobile App|Redesign the customer experience for iOS and Android.">
+                        <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="14">
+                            <Border
+                                Width="44"
+                                Height="44"
+                                VerticalAlignment="Top"
+                                Background="{DynamicResource AccentBackgroundBrush}"
+                                CornerRadius="12">
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    FontSize="20"
+                                    Foreground="{DynamicResource AccentForegroundBrush}"
+                                    Text="◈" />
+                            </Border>
+
+                            <StackPanel Grid.Column="1" Spacing="9">
+                                <StackPanel Spacing="4">
+                                    <TextBlock
+                                        FontSize="14"
+                                        FontWeight="SemiBold"
+                                        Foreground="{DynamicResource PrimaryTextBrush}"
+                                        Text="Atlas Mobile App" />
+                                    <TextBlock
+                                        FontSize="12"
+                                        Foreground="{DynamicResource SecondaryTextBrush}"
+                                        Text="Redesign the customer experience for iOS and Android."
+                                        TextTrimming="CharacterEllipsis" />
+                                </StackPanel>
+                                <ProgressBar
+                                    Height="5"
+                                    Background="{DynamicResource SeparatorBrush}"
+                                    Foreground="{DynamicResource AccentForegroundBrush}"
+                                    Maximum="100"
+                                    Value="72" />
+                                <Grid ColumnDefinitions="*,Auto">
+                                    <TextBlock
+                                        FontSize="11"
+                                        Foreground="{DynamicResource MutedTextBrush}"
+                                        Text="Maya, Leo + 2" />
+                                    <TextBlock
+                                        Grid.Column="1"
+                                        FontSize="11"
+                                        Foreground="{DynamicResource MutedTextBrush}"
+                                        Text="Due Jun 24" />
+                                </Grid>
+                            </StackPanel>
+
+                            <StackPanel
+                                Grid.Column="2"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                Spacing="4">
+                                <TextBlock
+                                    HorizontalAlignment="Right"
+                                    FontSize="15"
+                                    FontWeight="SemiBold"
+                                    Foreground="{DynamicResource PrimaryTextBrush}"
+                                    Text="72%" />
+                                <TextBlock
+                                    HorizontalAlignment="Right"
+                                    FontSize="11"
+                                    Foreground="{DynamicResource SecondaryTextBrush}"
+                                    Text="In progress" />
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+
+                    <Border Height="1" Background="{DynamicResource SeparatorBrush}" />
+
+                    <Border
+                        x:Name="NorthstarCard"
+                        Padding="0,18"
+                        Tag="At risk|Northstar Website|A new marketing site built around the product launch.">
+                        <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="14">
+                            <Border
+                                Width="44"
+                                Height="44"
+                                VerticalAlignment="Top"
+                                Background="{DynamicResource ElectricBackgroundBrush}"
+                                CornerRadius="12">
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    FontSize="20"
+                                    Foreground="{DynamicResource ElectricForegroundBrush}"
+                                    Text="✦" />
+                            </Border>
+
+                            <StackPanel Grid.Column="1" Spacing="9">
+                                <StackPanel Spacing="4">
+                                    <TextBlock
+                                        FontSize="14"
+                                        FontWeight="SemiBold"
+                                        Foreground="{DynamicResource PrimaryTextBrush}"
+                                        Text="Northstar Website" />
+                                    <TextBlock
+                                        FontSize="12"
+                                        Foreground="{DynamicResource SecondaryTextBrush}"
+                                        Text="A new marketing site built around the product launch."
+                                        TextTrimming="CharacterEllipsis" />
+                                </StackPanel>
+                                <ProgressBar
+                                    Height="5"
+                                    Background="{DynamicResource SeparatorBrush}"
+                                    Foreground="{DynamicResource ElectricForegroundBrush}"
+                                    Maximum="100"
+                                    Value="48" />
+                                <Grid ColumnDefinitions="*,Auto">
+                                    <TextBlock
+                                        FontSize="11"
+                                        Foreground="{DynamicResource MutedTextBrush}"
+                                        Text="Jordan, Sam + 1" />
+                                    <TextBlock
+                                        Grid.Column="1"
+                                        FontSize="11"
+                                        Foreground="{DynamicResource MutedTextBrush}"
+                                        Text="Due Jun 21" />
+                                </Grid>
+                            </StackPanel>
+
+                            <StackPanel
+                                Grid.Column="2"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                Spacing="4">
+                                <TextBlock
+                                    HorizontalAlignment="Right"
+                                    FontSize="15"
+                                    FontWeight="SemiBold"
+                                    Foreground="{DynamicResource PrimaryTextBrush}"
+                                    Text="48%" />
+                                <TextBlock
+                                    HorizontalAlignment="Right"
+                                    FontSize="11"
+                                    Foreground="{DynamicResource AccentForegroundBrush}"
+                                    Text="At risk" />
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+
+                    <Border Height="1" Background="{DynamicResource SeparatorBrush}" />
+
+                    <Border
+                        x:Name="BrandCard"
+                        Padding="0,18"
+                        Tag="Completed|Q3 Brand Refresh|A refreshed visual identity and updated design system.">
+                        <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="14">
+                            <Border
+                                Width="44"
+                                Height="44"
+                                VerticalAlignment="Top"
+                                Background="{DynamicResource ElectricBackgroundBrush}"
+                                CornerRadius="12">
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    FontSize="20"
+                                    Foreground="{DynamicResource ElectricForegroundBrush}"
+                                    Text="◉" />
+                            </Border>
+
+                            <StackPanel Grid.Column="1" Spacing="9">
+                                <StackPanel Spacing="4">
+                                    <TextBlock
+                                        FontSize="14"
+                                        FontWeight="SemiBold"
+                                        Foreground="{DynamicResource PrimaryTextBrush}"
+                                        Text="Q3 Brand Refresh" />
+                                    <TextBlock
+                                        FontSize="12"
+                                        Foreground="{DynamicResource SecondaryTextBrush}"
+                                        Text="A refreshed visual identity and updated design system."
+                                        TextTrimming="CharacterEllipsis" />
+                                </StackPanel>
+                                <ProgressBar
+                                    Height="5"
+                                    Background="{DynamicResource SeparatorBrush}"
+                                    Foreground="{DynamicResource PositiveTextBrush}"
+                                    Maximum="100"
+                                    Value="100" />
+                                <Grid ColumnDefinitions="*,Auto">
+                                    <TextBlock
+                                        FontSize="11"
+                                        Foreground="{DynamicResource MutedTextBrush}"
+                                        Text="Taylor, Alex + 2" />
+                                    <TextBlock
+                                        Grid.Column="1"
+                                        FontSize="11"
+                                        Foreground="{DynamicResource MutedTextBrush}"
+                                        Text="Completed Jun 12" />
+                                </Grid>
+                            </StackPanel>
+
+                            <StackPanel
+                                Grid.Column="2"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                Spacing="4">
+                                <TextBlock
+                                    HorizontalAlignment="Right"
+                                    FontSize="15"
+                                    FontWeight="SemiBold"
+                                    Foreground="{DynamicResource PrimaryTextBrush}"
+                                    Text="100%" />
+                                <TextBlock
+                                    HorizontalAlignment="Right"
+                                    FontSize="11"
+                                    Foreground="{DynamicResource PositiveTextBrush}"
+                                    Text="Completed" />
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+
+                    <Border Height="1" Background="{DynamicResource SeparatorBrush}" />
+
+                    <Border
+                        x:Name="PortalCard"
+                        Padding="0,18"
+                        Tag="Planning|Customer Portal|Self-service portal for billing, invoices, and account details.">
+                        <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="14">
+                            <Border
+                                Width="44"
+                                Height="44"
+                                VerticalAlignment="Top"
+                                Background="{DynamicResource AccentBackgroundBrush}"
+                                CornerRadius="12">
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    FontSize="20"
+                                    Foreground="{DynamicResource AccentForegroundBrush}"
+                                    Text="⌘" />
+                            </Border>
+
+                            <StackPanel Grid.Column="1" Spacing="9">
+                                <StackPanel Spacing="4">
+                                    <TextBlock
+                                        FontSize="14"
+                                        FontWeight="SemiBold"
+                                        Foreground="{DynamicResource PrimaryTextBrush}"
+                                        Text="Customer Portal" />
+                                    <TextBlock
+                                        FontSize="12"
+                                        Foreground="{DynamicResource SecondaryTextBrush}"
+                                        Text="Self-service portal for billing, invoices, and account details."
+                                        TextTrimming="CharacterEllipsis" />
+                                </StackPanel>
+                                <ProgressBar
+                                    Height="5"
+                                    Background="{DynamicResource SeparatorBrush}"
+                                    Foreground="{DynamicResource AccentForegroundBrush}"
+                                    Maximum="100"
+                                    Value="12" />
+                                <Grid ColumnDefinitions="*,Auto">
+                                    <TextBlock
+                                        FontSize="11"
+                                        Foreground="{DynamicResource MutedTextBrush}"
+                                        Text="Morgan, Casey" />
+                                    <TextBlock
+                                        Grid.Column="1"
+                                        FontSize="11"
+                                        Foreground="{DynamicResource MutedTextBrush}"
+                                        Text="Starts Jun 26" />
+                                </Grid>
+                            </StackPanel>
+
+                            <StackPanel
+                                Grid.Column="2"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                Spacing="4">
+                                <TextBlock
+                                    HorizontalAlignment="Right"
+                                    FontSize="15"
+                                    FontWeight="SemiBold"
+                                    Foreground="{DynamicResource PrimaryTextBrush}"
+                                    Text="12%" />
+                                <TextBlock
+                                    HorizontalAlignment="Right"
+                                    FontSize="11"
+                                    Foreground="{DynamicResource SecondaryTextBrush}"
+                                    Text="Planning" />
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+
+                    <TextBlock
+                        x:Name="EmptyState"
+                        Margin="0,24"
+                        HorizontalAlignment="Center"
+                        FontSize="13"
+                        Foreground="{DynamicResource SecondaryTextBrush}"
+                        IsVisible="False"
+                        Text="No projects match your search." />
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>
